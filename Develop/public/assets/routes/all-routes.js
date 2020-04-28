@@ -13,6 +13,14 @@ var PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+
+
+
+
+
+
+
 //*GET notes file
 app.get("/notes", function(req, res) {
     res.sendFile(path.join(__dirname, "notes.html"));
@@ -44,12 +52,10 @@ app.get("/notes", function(req, res) {
     res.json(newNote);
   });
 
-  app.get("/", function(req, res) {
+  app.delete("/api/notes/:id", function(req, res) {
     res.sendFile(path.join(__dirname, "view.html"));
   });
 
-  app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "view.html"));
-  });
+  
 
 module.exports = route
